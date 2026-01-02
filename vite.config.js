@@ -15,6 +15,16 @@ import vue from '@vitejs/plugin-vue'
 // 작성한 설정 내용을 외부(Vite 엔진)로 내보냅니다. 
 // https://vite.dev/config/
 export default defineConfig({
+  // base: '/safetyCalculator/', // 레포지토리 이름을 앞뒤에 /와 함께 넣으세요.
+  base: '/main/', // 레포지토리 이름을 앞뒤에 /와 함께 넣으세요.
+  
   //Vite에게 "우리는 Vue 프레임워크를 사용하니까, 관련 플러그인을 가동해줘"라고 명령하는 핵심 줄입니다.
   plugins: [vue()],
 })
+
+
+
+// export default defineConfig({
+//   base: '/safetyCalculator/', // 레포지토리 이름을 앞뒤에 /와 함께 넣으세요.
+//   // ... 나머지 설정
+// })
