@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router';
+//import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router'; // HashHistory로 변경
 import LoginPage from '../components/LoginPage.vue';
 import MainPage from '../components/MainPage.vue';
 import ProbabilityCalculator from '../components/ProbabilityCalculator.vue';
@@ -33,8 +34,11 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  // history: createWebHistory(),
+  // routes
+  history: createWebHashHistory('/safetyCalculator/'), // Base 경로 추가
   routes
+  
 });
 
 router.beforeEach((to, from, next) => {

@@ -2,7 +2,8 @@
   <div class="main-layout">
     <header class="app-header">
       <!-- <img src="https://picsum.photos/seed/functional-safety/800/200" alt="Functional Safety Concept" class="header-image" /> -->
-      <img src="../assets/safetyCalculator.jpg" alt="Functional Safety Concept" class="header-image" />
+      <!-- <img src="../assets/safetyCalculator.jpg" alt="Functional Safety Concept" class="header-image" /> -->
+      <img src="/safetyCalculator/safetyCalculator.jpg" alt="Functional Safety Concept" class="header-image" />
       <h1>환영합니다! 안전 분석 웹서버</h1>
       <p>필요한 기능을 트리 메뉴에서 선택해주세요.</p>
     </header>
