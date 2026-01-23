@@ -11,8 +11,13 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@handsontable/vue3": "^16.2.0",
+    "chart.js": "^4.5.1",
+    "handsontable": "^16.2.0",
     "mathjs": "^15.1.0",
+    "mermaid": "^11.12.2",
     "vue": "^3.5.24",
+    "vue-chartjs": "^5.3.3",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {

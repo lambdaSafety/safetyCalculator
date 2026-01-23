@@ -13,7 +13,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f4f7f6; /* 전체적인 배경색 */
+  background-color: #f4f7f6; 
+  /* 전체적인 배경색. #f4f7f6 ,  #f0f2f5 (밝은 청회색), #fdfdfb (따뜻한 아이보리 톤이 섞인 화이트)*/
 }
 #app-wrapper {
   /* 앱 전체 컨테이너에 필요한 전역 스타일 */

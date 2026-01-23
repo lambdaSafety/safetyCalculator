@@ -9,6 +9,7 @@
     </header>
 
     <div class="main-content">
+
       <aside class="sidebar">
         <h2>메뉴</h2>
         <ul class="tree-menu">
@@ -20,14 +21,24 @@
               <li><router-link to="/calculator/reliability">신뢰도 계산기 (예정)</router-link></li>
             </ul>
           </li>
-          <li @click="toggleSubMenu('modeling')" :class="{ 'has-submenu': true, 'open': openSubMenu === 'modeling' }">
-            <span class="menu-item-toggle">모델링 도구</span>
-            <ul v-if="openSubMenu === 'modeling'" class="submenu">
-              <li><router-link to="/modeling/fta">FTA 에디터 (예정)</router-link></li>
-              <li><router-link to="/modeling/fmea">FMEA 테이블 (예정)</router-link></li>
-            </ul>
-          </li>
-          <li><router-link to="/quizzes">퀴즈 (예정)</router-link></li>
+
+          <template v-if="userRole === 'admin'">
+            <li @click="toggleSubMenu('modeling')" :class="{ 'has-submenu': true, 'open': openSubMenu === 'modeling' }">
+              <span class="menu-item-toggle">모델링 도구1</span>
+              <ul v-if="openSubMenu === 'modeling'" class="submenu">
+                <li><router-link to="/modeling/fta">FTA 에디터 (예정)</router-link></li>
+                <li><router-link to="/modeling/fmea">FMEA 테이블 (예정)</router-link></li>
+              </ul>
+            </li>
+
+            <li @click="toggleSubMenu('testing')" :class="{ 'has-submenu': true, 'open': openSubMenu === 'testing' }">
+              <span class="menu-item-toggle">모델링 도구-연습중</span>
+              <ul v-if="openSubMenu === 'testing'" class="submenu">
+                <li><router-link to="/testing/sysml">SysML 2.0 모델링</router-link></li>
+                </ul>
+            </li>
+          </template>
+
           <li @click="logout" class="logout-item">로그아웃</li>
         </ul>
       </aside>
@@ -47,19 +58,30 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue'; // ★ onMounted 추가됨
 import { useRouter } from 'vue-router';
+
 
 const router = useRouter();
 const openSubMenu = ref(''); // 현재 열려있는 서브 메뉴
+const userRole = ref(''); // 사용자 역할 상태 추가
+
+onMounted(() => {
+  // 컴포넌트 로드 시 로컬스토리지에서 역할 가져오기
+  userRole.value = localStorage.getItem('userRole') || 'guest';
+});
 
 const toggleSubMenu = (menu) => {
   openSubMenu.value = openSubMenu.value === menu ? '' : menu;
 };
 
 const logout = () => {
-  localStorage.removeItem('isLoggedIn'); // 로그인 상태 제거
-  router.push('/'); // 로그인 페이지로 리다이렉트
+  // localStorage.removeItem('isLoggedIn'); // 로그인 상태 제거
+  // router.push('/'); // 로그인 페이지로 리다이렉트
+  localStorage.removeItem('isLoggedIn');
+  localStorage.removeItem('userRole'); // 역할 정보도 삭제
+  router.push('/');
+
 };
 </script>
 
