@@ -14,27 +14,32 @@
         <h2>메뉴</h2>
         <ul class="tree-menu">
           <li @click="toggleSubMenu('calculators')" :class="{ 'has-submenu': true, 'open': openSubMenu === 'calculators' }">
-            <span class="menu-item-toggle">계산기</span>
+            <span class="menu-item-toggle">기본 계산</span>
             <ul v-if="openSubMenu === 'calculators'" class="submenu">
               <li><router-link to="/calculator/probability">확률 계산기 (P(AUB))</router-link></li>
-              <li><router-link to="/calculator/exponential">지수분포 계산기 (pdf/CDF)</router-link></li>
-              <li><router-link to="/calculator/reliability">신뢰도 계산기 (예정)</router-link></li>
+              <li><router-link to="/calculator/exponential">지수분포 확률 계산</router-link></li>
+              <li><router-link to="/calculator/dist">CDF,pdf 그래프</router-link></li>
+              <li><router-link to="/calculator/eventProb">이벤트 확률(일반,repaired, monitored)</router-link></li>
             </ul>
           </li>
 
           <template v-if="userRole === 'admin'">
             <li @click="toggleSubMenu('modeling')" :class="{ 'has-submenu': true, 'open': openSubMenu === 'modeling' }">
-              <span class="menu-item-toggle">모델링 도구1</span>
+              <span class="menu-item-toggle">연습1</span>
               <ul v-if="openSubMenu === 'modeling'" class="submenu">
-                <li><router-link to="/modeling/fta">FTA 에디터 (예정)</router-link></li>
-                <li><router-link to="/modeling/fmea">FMEA 테이블 (예정)</router-link></li>
+                <li><router-link to="/modeling/sysml">SysML 2.0</router-link></li>
+                <li><router-link to="/modeling/FTA">FTA 연습중</router-link></li>
+                <li><router-link to="/modeling/grid">test_grid_handsontable 연습중</router-link></li>
+                <li><router-link to="/modeling/fta">TBD</router-link></li>
               </ul>
             </li>
-
             <li @click="toggleSubMenu('testing')" :class="{ 'has-submenu': true, 'open': openSubMenu === 'testing' }">
-              <span class="menu-item-toggle">모델링 도구-연습중</span>
+              <span class="menu-item-toggle">연습2</span>
               <ul v-if="openSubMenu === 'testing'" class="submenu">
-                <li><router-link to="/testing/sysml">SysML 2.0 모델링</router-link></li>
+                <li><router-link to="/testing/mySimpleCode__0">mySimpleCode__0</router-link></li>
+                <li><router-link to="/testing/myPropertyTemp1">myPropertyTemp1</router-link></li>
+                <li><router-link to="/testing/myPropertyTemp2">myPropertyTemp2</router-link></li>
+                <li><router-link to="/testing/store_________0">saveWebCode___0</router-link></li>
                 </ul>
             </li>
           </template>
